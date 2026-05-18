@@ -121,8 +121,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# === CONFIGURAÇÃO DE ARQUIVOS ESTÁTICOS ===
+STATIC_URL = '/static/'
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Pasta onde você vai criar seus arquivos estáticos no desenvolvimento
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+# Pasta (diferente) onde o Django vai REUNIR tudo ao rodar o collectstatic
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+# === CONFIGURAÇÃO DE MÍDIA (UPLOAD DE USUÁRIOS) ===
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
