@@ -136,3 +136,9 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # === CONFIGURAÇÃO DE MÍDIA (UPLOAD DE USUÁRIOS) ===
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+try:
+    from local_settings import *
+
+except ImportError:
+    ...
