@@ -8,8 +8,17 @@
   <link rel="stylesheet" href="{% static 'global/css/style.css' %}">
 </head>
 <body>
-  {% include 'global/partials/header.html' %}
+  {% include 'global/partials/_header.html' %}
 
+  
+{% if messages %}
+  {% for message in messages %}
+    <div class="message {{ message.tags }}">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+    
   <main class="content">
     {% block content %}{% endblock content %}
   </main>
